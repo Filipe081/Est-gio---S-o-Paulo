@@ -6,23 +6,27 @@ def calcular_soma():
     K = 0
     
     while K < INDICE:
-        K =+ 1
+        K += 1  # Corrigido de K =+ 1 para K += 1
         SOMA += K
         
     print(f"Valor final de SOMA: {SOMA}")
     
-def is_bibonacci(n):
+def is_fibonacci(n):  # Corrigido nome da função de is_bibonacci para is_fibonacci
     a, b = 0, 1
     while b <= n:
         if b == n:
             return True
         a, b = b, a + b
-    return n ==0
+    return n == 0
 
 def verificar_fibonacci():
-    numero = int(input("Informe um número: "))
+    try:
+        numero = int(input("Informe um número: "))  # Verificação de input para garantir que seja um número válido
+    except ValueError:
+        print("Por favor, insira um número inteiro válido.")
+        return
     
-    if is_bibonacci(numero):
+    if is_fibonacci(numero):
         print(f"O número {numero} pertence à sequência de Fibonacci.")
     else:
         print(f"O número {numero} não pertence à sequência de Fibonacci.")
